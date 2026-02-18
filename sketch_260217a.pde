@@ -12,4 +12,8 @@ void draw() {
  noFill();
  ellipse(150, y, 100, 100);
 y = y+1;
+if (y > 350){
+  y = -50;
 }
+}
+
