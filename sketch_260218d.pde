@@ -15,4 +15,9 @@ void draw(){
   ellipse(x, 150, s, s);
   x = x + 5;
   s = s + 1;
+   if (x > 350){
+    x = -50;
+     s = 0;
+  }
 }
+
