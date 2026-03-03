@@ -1,16 +1,18 @@
 //------------SURVEILLENCE PROJECT----------//
 
+
+
 cloud[] myCloud;
-int n = 7
+int n = 7;
 
 void setup() {
   size(800, 600);
   background(75, 105, 191);
   myCloud = new cloud[n];
   int i = 0;
-  while (i < n){
-  myCloud[i] = newCloud;
-  i++;
+  while (i < n) {
+    myCloud[i] = new cloud();
+    i++;
   }
 }
 
@@ -28,15 +30,18 @@ void draw() {
   building(300, 400, 1);
   building(570, 380, 1);
   int i = 0;
-  while (i < n){
-  myCloud[i].act();
-  myCloud[i].show();
-  i++;
+  while (i < n) {
+    myCloud[i].act();
+    myCloud[i].show();
+    i++;
   }
-  
-  
-
   fill(143, 150, 170, 120);
+  noStroke();
+  rect(0, 0, 800, 600);
+  eye();
+  pupil(mouseX/7 + 320, mouseY/14 + 280);
+  fill(0, 0, 0, 30);
+  noStroke();
   rect(0, 0, 800, 600);
 }
 
@@ -66,5 +71,34 @@ void building(float buildingX, float buildingY, float buildingS) {
   rect(10, 210, 100, 10);
   rect(10, 240, 100, 10);
   rect(10, 260, 100, 10);
+  popMatrix();
+}
+
+void pupil(float pupilX, float pupilY) {
+  pushMatrix();
+  translate(pupilX, pupilY);
+  fill(0, 0, 0);
+  circle(0, 0, 90);
+  fill(255, 0, 0, 90);
+  circle(20, -10, 20);
+  popMatrix();
+}
+
+void eye() {
+  pushMatrix();
+  translate(400, 300);
+  fill(255);
+  stroke(0);
+  strokeWeight(3);
+  ellipse(0, 0, 450, 240);
+  fill(167, 25, 35);
+  noStroke();
+  arc(0, 0, 450, 240, 0, radians(180));
+  arc(0, 0, 450, 240, radians(180), radians(360));
+  fill(255, 0, 0, 90);
+  quad(-225, 0, 225, 0, 400, 400, -400, 400);
+  fill(255);
+  noStroke();
+  ellipse(0, 0, 445, 130);
   popMatrix();
 }

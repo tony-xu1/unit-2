@@ -3,9 +3,9 @@ class cloud {
   float cloudX, cloudY, cloudS;
 
   cloud() {
-    cloudY = random(0, 400);
-    cloudX = 820;
-    cloudS = random(0, 2);
+    cloudY = random(0, 360);
+    cloudX = random(0, 800);
+    cloudS = random(0.3, 1.6);
   }
 
   void show() {
@@ -26,5 +26,8 @@ class cloud {
   
   void act(){
    cloudX = cloudX - random(0.1, 2); 
+     if (cloudX < -100){
+       cloudX = 900;
+     }
   }
 }
